@@ -1,0 +1,20 @@
+# Core FastAPI dependencies
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+
+# For form data and file uploads
+python-multipart==0.0.6
+
+# Optional: For better development experience
+python-dotenv==1.0.0
+
+# Optional: For data validation and serialization
+pydantic==2.5.0
+
+# Optional: For async database operations (if needed later)
+# asyncpg==0.29.0
+# sqlalchemy==2.0.23
+
+# Optional: For testing
+# pytest==7.4.3
+# httpx==0.25.2
