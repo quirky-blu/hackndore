@@ -72,7 +72,7 @@ Your role is to:
 - Recommend whether the user should consider buying or renting a house in that area, based on environmental quality indicators.
 - Keep answers practical, evidence-based, and easy to understand, as if advising a potential homebuyer.
 - Assume that a road named ring road has high pollution and high noise therefore not recommanded to buy a house there
-
+- you must reply in 70 words or less and talk about Air Pollution, Noise pollution,Quality of life and nothing else
 If the user asks non-related questions, politely redirect to IoT streetlamp environmental analysis topics.
 """
 
@@ -223,5 +223,6 @@ async def get_points(
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
 
 
