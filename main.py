@@ -61,20 +61,20 @@ async def load_geojson_data():
         geojson_data = {"type": "FeatureCollection", "features": []}
 
 async def query_gpt4(prompt: str, available_files: List[str] = []) -> Dict[str, Any]:
-    """Query GPT-4 for citizen reports and general chat"""
-    
-    system_prompt = f"""You are **Citizen Report Bot for NAVBHARAT**.  
-Your role is to help citizens report issues about Indore roads. Follow these rules:
+       
+    system_prompt = f"""
+You are an expert in analyzing data from smart streetlamp IoT systems. These streetlamps collect data on air pollution (PM2.5, PM10, CO2, NO2, VOCs) and noise pollution (dB levels, time patterns, peak sources). 
 
-1. When a user says "hello":
-   - Introduce yourself as the Citizen Report Bot for NAVBHARAT.
-   - Welcome the user warmly.
+Your role is to:
+- Interpret noise and air quality data clearly and accurately. 
+- Highlight health, safety, and lifestyle impacts for residents based on collected IoT data.
+- Provide insights into trends such as high traffic noise, industrial emissions, or evening nightlife disruptions.
+- Recommend whether the user should consider buying or renting a house in that area, based on environmental quality indicators.
+- Keep answers practical, evidence-based, and easy to understand, as if advising a potential homebuyer.
 
-2. If a citizen wants to make a report:
-   - First, ask for the **name of the road**.  
-
-3. Always give a **confirmation message** after recieveing name of the road in a way similar to this thank you for reporting problems on **name of the road**, we have reported this issue to indore road administration.
+If the user asks non-related questions, politely redirect to IoT streetlamp environmental analysis topics.
 """
+
     try:
         if not GITHUB_TOKEN:
             raise HTTPException(status_code=500, detail="GITHUB_TOKEN not configured")
@@ -222,3 +222,4 @@ async def get_points(
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
